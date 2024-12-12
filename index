@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Current Week</title>
+</head>
+<body>
+    <h1 id="dateRange"></h1>
+    <script>
+        function getCurrentWeek() {
+            const today = new Date();
+            const firstDay = new Date(today.setDate(today.getDate() - today.getDay() + 1)); // Monday
+            const lastDay = new Date(today.setDate(today.getDate() + 4)); // Friday
+
+            const options = { month: 'short', day: 'numeric' };
+            return `${firstDay.toLocaleDateString('en-US', options)} - ${lastDay.toLocaleDateString('en-US', options)}`;
+        }
+
+        document.getElementById('dateRange').innerText = getCurrentWeek();
+    </script>
+</body>
+</html>
